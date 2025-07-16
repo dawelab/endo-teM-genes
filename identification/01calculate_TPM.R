@@ -34,13 +34,5 @@ all_tpm <- lapply(meancounts[7:23], tpm)
 all_tpm<-as.data.frame(all_tpm)
 rownames(all_tpm) <- substr(rownames(meancounts), 1, nchar(rownames(meancounts)) - 5)
 all_tpm$gene<-rownames(all_tpm)
-B73.all <- read.csv("~/Documents/lab/megpeg/B73.all.csv")
 
-b73.all.6_38<-merge(B73.all,all_tpm,by="gene",all=T)
-b73.all.6_38 <- b73.all.6_38 %>%
-  mutate(epiallele2 = case_when(
-    mCG <= 0.05 & mCHG <= 0.05  ~  "UM",
-    mCG >= 0.2 & mCHG <= 0.05  ~  "gbM",
-    mCG >= 0.4 & mCHG >= 0.4 & cCHG >= 10 ~  "teM",
-    TRUE ~ "ambiguous"         
-  ))
+write.table(all_tpm,"~/Documents/lab/all_tpm.txt",quote=F)
