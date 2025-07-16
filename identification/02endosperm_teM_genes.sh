@@ -1,4 +1,16 @@
-#TPM >= 5fold and tpm >= 20 in endosperm#############
+#identify teM genes, mCG >= 0.4 & mCHG >= 0.4 & cCHG >= 10 
+B73.all <- read.csv("~/Documents/lab/megpeg/B73.all.csv")
+
+b73.all.6_38<-merge(B73.all,all_tpm,by="gene",all=T)
+b73.all.6_38 <- b73.all.6_38 %>%
+  mutate(epiallele2 = case_when(
+    mCG <= 0.05 & mCHG <= 0.05  ~  "UM",
+    mCG >= 0.2 & mCHG <= 0.05  ~  "gbM",
+    mCG >= 0.4 & mCHG >= 0.4 & cCHG >= 10 ~  "teM",
+    TRUE ~ "ambiguous"         
+  ))
+  
+#identify endoseprm teM genes,TPM >= 5fold and tpm >= 20 in endosperm#############
 
 all_body_genes<-data.frame(matrix(nrow = 0, ncol = 1))
 
@@ -7,7 +19,7 @@ for (i in seq(6, 38, by = 2)) {
   selected <- b73.all.6_38[apply(b73.all.6_38, 1, function(selected_row) {
     as.numeric(selected_row[[sample]]) >= 5 *max(as.numeric(selected_row[c(14,16:23)]))
   }), ]
-  
+  #identify the teM genes for each development stage
   b73.one_stage <- selected %>%
     mutate(zeinlike = case_when(
       epiallele2 == "teM"  & !!sym(sample) >= 20 ~  "TE-like-genes",
@@ -20,6 +32,7 @@ for (i in seq(6, 38, by = 2)) {
   # write.table(body_genes,name,quote = F,row.names = F,
   #             col.names = F,sep = "\t")
   
+  #combind all the stages
   all_body_genes<-rbind(all_body_genes,as.data.frame(body_genes))
   
 }
