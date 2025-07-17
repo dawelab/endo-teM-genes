@@ -38,3 +38,37 @@ mat_pref_var<-mat_pref%>%
   mutate(variance=var(maternal_preference,na.rm = TRUE))%>%
   ungroup()%>%
   filter(variance<=0.02)
+
+
+bmegs_var<-mat_pref_var%>%
+  filter(b73_gene%in%all_BM_5FC_core$V1)%>%
+  group_by(b73_gene)%>%
+  summarise(mean=mean(maternal_preference,na.rm=T))%>%
+  mutate(group="BMEG")
+
+
+fmegs_var<-mat_pref_var%>%
+  filter(b73_gene%in%MEG_FMEGs$V1)%>%
+  group_by(b73_gene)%>%
+  summarise(mean=mean(maternal_preference,na.rm=T))%>%
+  mutate(group="FMEG")
+
+coregene_var<-mat_pref_var%>%
+  filter(b73_gene%in%core_gene$gene)%>%
+  group_by(b73_gene)%>%
+  summarise(mean=mean(maternal_preference,na.rm=T))%>%
+  mutate(group="Core Gene")
+
+combined_var<-rbind(bmegs_var,fmegs_var,coregene_var)%>%
+  mutate(group=factor(group,levels=c("BMEG","FMEG","Core Gene")))
+
+ggplot(combined_var, aes(x = group, y = mean,color=group)) +
+  geom_point() +
+  #geom_jitter(width = 0.2, alpha = 0.3, size = 1) +
+  theme_minimal() +
+  theme(text = element_text(size = 18))+
+  labs(title = "Maternal expression  preference ",
+       x = "",
+       y = "Maternal Expression Preference") +
+  geom_hline(yintercept = 0.86, linetype = "dashed", color = "black") +
+  geom_hline(yintercept = 0.4, linetype = "dashed", color = "black")
