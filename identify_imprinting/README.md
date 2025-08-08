@@ -1,4 +1,4 @@
-#These scripts describe how do we identify the imprinted genes in maize endoseprm
+# These scripts describe how do we identify the imprinted genes in maize endoseprm
 
 1. The input file mat_pref_NAM.txt was downloaded from Higgins et al., 2024 "Conservation of imprinted expression across genotypes is correlated with consistency of imprinting across endosperm development in maize"
 2. The format transfer file MaizeGDB_maize_pangene_2020_08.tsv was downloaded from https://download.maizegdb.org/Pan-genes/archive/pan-zea-2020/
