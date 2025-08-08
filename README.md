@@ -1,1 +1,1 @@
-These scripts include the code for "PAPE
+These scripts include the code for "PAPER"
