@@ -50,6 +50,8 @@ converted_megs_regions <- converted_megs_regions %>%
 #write.table(converted_megs_regions,"~/Documents/lab/megpeg/meg_regions.bed",quote = F,row.names = F,
 #                     col.names = F,sep = "\t")
 
+#module load BEDTools/2.30.0-GCC-12.2.0
+#bedtools intersect -a meg_regions.bed -b /scratch/ys33815/sun/wt_endo-embryo_hyperDMRs.bed -u > meg_DMR.bed
 
 meg_DMR <- read.delim("~/Documents/lab/megpeg/meg_DMR.bed", header=FALSE)
 meg_DMR$feature<-substring(meg_DMR$V7,4,17)
