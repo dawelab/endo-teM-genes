@@ -1,5 +1,6 @@
 #identify teM genes, mCG >= 0.4 & mCHG >= 0.4 & cCHG >= 10 
 B73.all <- read.csv("~/Documents/lab/megpeg/B73.all.csv")
+all_tpm <- read.csv("~/Documents/lab/all_tpm.txt", sep="")
 
 b73.all.6_38<-merge(B73.all,all_tpm,by="gene",all=T)
 b73.all.6_38 <- b73.all.6_38 %>%
