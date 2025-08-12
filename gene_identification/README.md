@@ -5,7 +5,7 @@
                    2. Zm-B73-REFERENCE-NAM-5.0_Zm00001eb.1.gff3, B73 genome annotation file 
 
       Algorithm: 
-      $`\mathrm {TPM}_i = \frac{n_i/l_i}{\sum_{i=1}^{j} \left( n_i/l_i \right) \times 10^6}`$
+      $`\mathrm {TPM}_i = \frac{n_i/l_i}{\sum_{i=1}^{j} \left( n_i/l_i \right)} \times 10^6`$
 
 ## 2. Identify core genes
       Input files: 1. pan_gene_matrix_v3_cyverse.csv downloaded from https://de.cyverse.org/data/ds/iplant/home/shared/NAM/NAM_genome_and_annotation_Jan2021_release/SUPPLEMENTAL_DATA/pangene-files
