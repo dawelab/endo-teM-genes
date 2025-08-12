@@ -12,10 +12,11 @@
 ## 2. Identify core genes
 >Input files:
 >
->pan_gene_matrix_v3_cyverse.csv downloaded from https://de.cyverse.org/data/ds/iplant/home/shared/NAM/NAM_genome_and_annotation_Jan2021_release/SUPPLEMENTAL_DATA/pangene-files
-
+>1. pan_gene_matrix_v3_cyverse.csv downloaded from https://de.cyverse.org/data/ds/iplant/home/shared/NAM/NAM_genome_and_annotation_Jan2021_release/SUPPLEMENTAL_DATA/pangene-files
+>2. Zm-B73-REFERENCE-NAM-5.0_Zm00001eb.1.gff3, B73 genome annotation file
+>   
 >Criterion:
->genes are present in all 26 NAM genome lines
+>genes are present in all 26 NAM genome lines and the B73 v5 annotation.
 
 ## 3.1 identify endosperm teM genes
 >Input files:
