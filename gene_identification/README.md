@@ -32,7 +32,8 @@
 >Inpute files:
 >1. B73_W22_maternalpreference_with_avg_rpm downladed from Kaitlin Higgins, Vital Nyabashi, Sarah Anderson, Conservation of                                imprinted expression across genotypes is correlated with consistency of imprinting across endosperm development in maize, G3                           Genes|Genomes|Genetics.
  >2. all_tpm.txt generated from 01calculte_TPM.R
- >3. Zm-B73-REFERENCE-NAM-5.0_Zm00001eb.1.gff3, B73 genome annotation file
+ >3. W22_B73_combine.csv, W22 and B73 v5 annotation file 
+ >4. Zm-B73-REFERENCE-NAM-5.0_Zm00001eb.1.gff3, B73 genome annotation file
                     
  >Criterion:
  >1. maternally expressed genes: RPM ≥ 1 & maternal preference ≥ 0.9 
