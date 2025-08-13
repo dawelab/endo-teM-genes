@@ -75,6 +75,6 @@ B73_megs_core <- B73_megs_core %>%
 B73_megs_FMEGs<-B73_megs_core%>%
   filter(epiallele2!="teM")
   
-write.csv(B73_megs_FMEGs$feature,"~/Documents/lab/megpeg/B73_MEGS_FMEGS.txt",quote=F,row.names = F)  
+write.csv(B73_megs_FMEGs$V11,"~/Documents/lab/megpeg/B73_MEGS_FMEGS.txt",quote=F,row.names = F)  
   
   
