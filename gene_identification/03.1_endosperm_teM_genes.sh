@@ -45,8 +45,11 @@ colnames(all_body_genes)<-"teM_genes"
 #            col.names = F,sep = "\t")
 
 colnames(all_body_genes)<-'b73'
-core_gene_te_like_gene<-merge(core_gene,all_body_genes,by.y = "b73",by.x = "gene", all=F)
-core_gene_te_like_gene<-core_gene_te_like_gene$gene
+
+#core genes
+b73_core_genes <- read.csv("~/Documents/lab/b73_core_genes.txt", sep="")
+core_gene_te_like_gene<-merge(b73_core_genes,all_body_genes,by.y = "b73",by.x = "x", all=F)
+core_gene_te_like_gene<-core_gene_te_like_gene$x
 #write.table(core_gene_te_like_gene,"~/Documents/lab/megpeg/all_BM_5FC_core.bed",quote = F,row.names = F,
 #            col.names = F,sep = "\t")
 
