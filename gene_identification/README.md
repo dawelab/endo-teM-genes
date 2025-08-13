@@ -7,7 +7,10 @@
 >   
 >Algorithm:
 >
->>$`\mathrm{TPM}_i = \frac{n_i/l_i}{\sum_{i=1}^j \left(n_i/l_i\right)} \times 10^6`$
+>>$`\mathrm{TPM}_i = \frac{n_i/l_i}{\sum_{i=1}^j \left(n_i/l_i\right)} \times 10^6`$, $`n_i`$ denotes reads mapped to transcript, $`l_i`$ is the transcript length, j is the total number of genes.  
+>>
+>Output:
+>>all_tpm.txt
 
 ## 2. Identify core genes
 >Input files:
@@ -16,7 +19,10 @@
 >2. Zm-B73-REFERENCE-NAM-5.0_Zm00001eb.1.gff3, B73 genome annotation file
 >   
 >Criterion:
->genes are present in all 26 NAM genome lines and the B73 v5 annotation.
+>>genes are present in all 26 NAM genome lines and the B73 v5 annotation.
+>>
+>Output:
+>>b73_core_genes.txt
 
 ## 3.1 identify endosperm teM genes
 >Input files:
@@ -27,6 +33,9 @@
 >1. ≥ 10 CHG and ≥ 40% CG and CHG in the CDS reginos
 >2. ≥ 5-fold increase in TPM in endosperm compared to other 9 sporophyte tissues
 >3. core genes
+>
+>Output:
+>>endosperm_teM_genes.txt
 
 ## 3.2 identify flank-methylated endosperm genes (FMEGs)
 >Inpute files:
@@ -39,15 +48,21 @@
  >1. maternally expressed genes: RPM ≥ 1 & maternal preference ≥ 0.9 
  >2. core genes 
  >3. with DMRs only at the 1kb flank regions
+>
+>Output:
+>>B73_MEGS_FMEGS.txt
 
 ## 3.3 identify endosperm specific genes
 >Input files:
->all_tpm.txt generated from 01calculte_TPM.R
+>>all_tpm.txt generated from 01calculte_TPM.R
 
 >Criterion:
 >1. endosperm TPM >=20
 >2. ≥ 5-fold increase in TPM in endosperm compared to other 9 sporophyte tissues
 >3. core genes
+>
+>Output:
+>>endosperm_specific_genes.txt
                  
 
 
