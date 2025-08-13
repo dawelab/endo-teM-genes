@@ -10,6 +10,10 @@ specific$max<-apply(specific[,c(14,16:23)],1,max)
 specific$FC<-(specific$maxendo+1)/(specific$max+1)
 
 #select the endosperm specific genes using FC >=5 and endosperm TPM >=20
-specific<-specific[which(specific$maxendo>=20&specific$FC>=5),]
+specific<-specific[which(specific$maxendo>=20&specific$FC>=5),]%>%
+   distinct()
+
+write.csv(specific$b73_gene,"~/Documents/lab/endosperm_specific_genes.txt",quote=F,row.names = F)  
+
 
 
