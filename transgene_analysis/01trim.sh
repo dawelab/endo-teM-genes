@@ -1,7 +1,7 @@
-module load pigz/2.7-GCCcore-11.3.0
-ml Python/2.7.18-GCCcore-11.3.0
-module load cutadapt/4.5-GCCcore-11.3.0
-module load Trim_Galore/0.6.7-GCCcore-11.2.0
+module load pigz/2.8-GCCcore-13.3.0
+ml Python/3.12.3-GCCcore-13.3.0
+module load cutadapt/4.9-GCCcore-13.3.0
+module load Trim_Galore/0.6.10-GCCcore-12.3.0
 
 
 list=("DxJ-25" "DxJ-26" "DxJ-28" "JxD-1" "JxD-2" "JxD-3")
