@@ -26,7 +26,7 @@
 
 ## 3.1 identify endosperm teM genes
 >Input files:
->1. B73.all.csv downloaded from Zeng, Y., Somers, J., Bell, H.S. et al. Potent pollen gene regulation by DNA glycosylases in maize.                     Nat Commun 15, 8352 (2024).
+>1. B73.all.csv downloaded from Yibing Zeng, R Kelly Dawe, Jonathan I Gent, Natural methylation epialleles correlate with gene expression in maize, Genetics(2023).
 >2. all_tpm.txt generated from 01calculte_TPM.R
 
 >Criterion:
