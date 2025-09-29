@@ -4,6 +4,7 @@
 >Input files:
 >1. endo6_38_counts.txt, raw reads generated from 00RNA_Seq_mapping
 >2. Zm-B73-REFERENCE-NAM-5.0_Zm00001eb.1.gff3, B73 genome annotation file
+>3. B73.all.csv downloaded from Yibing Zeng, R Kelly Dawe, Jonathan I Gent, Natural methylation epialleles correlate with gene expression in maize, Genetics(2023).
 >   
 >Algorithm:
 >
@@ -11,6 +12,7 @@
 >>
 >Output:
 >>all_tpm.txt
+>>b73.all.6_38
 
 ## 2. Identify core genes
 >Input files:
@@ -24,7 +26,7 @@
 >Output:
 >>b73_core_genes.txt
 
-## 3.1 identify endosperm teM genes
+## 3 identify endosperm teM genes
 >Input files:
 >1. B73.all.csv downloaded from Yibing Zeng, R Kelly Dawe, Jonathan I Gent, Natural methylation epialleles correlate with gene expression in maize, Genetics(2023).
 >2. all_tpm.txt generated from 01calculte_TPM.R
@@ -37,7 +39,7 @@
 >Output:
 >>endosperm_teM_genes.txt
 
-## 3.2 identify flank-methylated endosperm genes (FMEGs)
+## 4 identify flank-methylated endosperm genes (FMEGs)
 >Inpute files:
 >1. B73_W22_maternalpreference_with_avg_rpm downladed from Kaitlin Higgins, Vital Nyabashi, Sarah Anderson, Conservation of                                imprinted expression across genotypes is correlated with consistency of imprinting across endosperm development in maize, G3                           Genes|Genomes|Genetics.
  >2. all_tpm.txt generated from 01calculte_TPM.R
@@ -52,7 +54,7 @@
 >Output:
 >>B73_MEGS_FMEGS.txt
 
-## 3.3 identify endosperm specific genes
+## 5 identify endosperm specific genes
 >Input files:
 >>all_tpm.txt generated from 01calculte_TPM.R
 
