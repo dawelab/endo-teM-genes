@@ -1,5 +1,0 @@
-module load Subread/2.0.6-GCC-11.3.0
-
-featureCounts -p --countReadPairs -t exon -g Parent -a ../transgene_added_b73.gff3 -O \
--o ../transgene_counts_b73.txt DxJ-25Aligned.sortedByCoord.out.bam  DxJ-28Aligned.sortedByCoord.out.bam  JxD-2Aligned.sortedByCoord.out.bam \
-DxJ-26Aligned.sortedByCoord.out.bam  JxD-1Aligned.sortedByCoord.out.bam   JxD-3Aligned.sortedByCoord.out.bam
