@@ -95,3 +95,49 @@ ggplot(df_long, aes(x = TimePoint, y = TPM, group = V1, color = Cluster)) +
   theme(axis.text.x = element_text(angle = 45, hjust = 1))
 
 
+
+#Select several genes in each cluster showing the real TPM 
+  set<-c("Zm00001eb302040","Zm00001eb005200",
+       "Zm00001eb375260","Zm00001eb042960",
+       "Zm00001eb094330", "Zm00001eb166950",
+       "Zm00001eb170070", "Zm00001eb313790")
+
+setcounts<-b73.all.6_38[which(b73.all.6_38$gene%in%set),c(1,25:41)]
+setcounts<-setcounts %>%
+  mutate(genename = case_when(
+           gene=="Zm00001eb302040" ~ "meg1",
+           gene=="Zm00001eb375260" ~ "myb",
+           gene=="Zm00001eb042960" ~ "tcrr2",
+           gene=="Zm00001eb094330" ~ "pbf",
+           gene=="Zm00001eb166950" ~ "19kD α-zein",
+           gene=="Zm00001eb170070" ~ "22 kDa α-zein",
+           gene=="Zm00001eb313790" ~ "50 kDa γ-zein",
+           gene=="Zm00001eb005200" ~ "esr2",
+           TRUE ~ "none"
+         ))
+
+df <- setcounts %>%
+  pivot_longer(cols = 2:18, names_to = "DAP", values_to = "TPM")%>%
+  mutate(DAP = factor(substring(DAP,2,), levels = seq(6, 38, by = 2)))
+
+df$genename <- factor(df$genename, levels = c("19 kDa α-zein", "22 kDa α-zein", 
+                                        "50 kDa γ-zein", "pbf", 
+                                        "meg1", "myb","tcrr2", "esr2" ))
+
+df$Cluster <- ifelse(df$genename %in% c("19 kDa α-zein", "22 kDa α-zein", "50 kDa γ-zein", "pbf"), "Cluster 2", "Cluster 1")
+
+
+ggplot(df, aes(x=DAP, y=TPM + 1, group=genename,color=genename)) +
+  geom_line() +
+  scale_y_continuous(trans = "log2", 
+                     labels = c("1","10", "100", "1000","10000","100000"),
+                     breaks = c(1,10, 100, 1000, 10000, 100000)) +
+  theme_classic(base_size = 18) +
+  labs(x="Days After Pollination (DAP)",y= "TPM")+
+  theme(#legend.position="top",
+        #legend.box = "horizontal",
+        legend.title = element_blank())
+
+
+
+
