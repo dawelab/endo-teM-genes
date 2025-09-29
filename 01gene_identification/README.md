@@ -1,4 +1,4 @@
-# These scripts identify the different gene sets, including endosperm teM genes, FMEGs, endsoeprm specific genes, and core genes.
+# These scripts identify different gene sets, including endosperm teM genes, FMEGs, endsoeprm specific genes, and core genes.
 
 ## 1. Calclute the TPM from the raw transcript reads  
 >Input files:
