@@ -12,7 +12,7 @@
 >>
 >Output:
 >>all_tpm.txt
->>b73.all.6_38
+>>b73.all.6_38.txt
 
 ## 2. Identify core genes
 >Input files:
