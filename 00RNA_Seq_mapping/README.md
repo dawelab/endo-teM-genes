@@ -4,3 +4,4 @@
 3. The **B73 v5** reference genome was indexed using **STAR**.  
 4. Trimmed reads were aligned to the **B73 v5 reference genome** using **STAR**.  
 5. Read counts per transcript were quantified using **featureCounts**.  
+6. Output the raw read data endo6_38_counts.txt.

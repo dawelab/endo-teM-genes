@@ -1,5 +1,5 @@
 library(dplyr)
-b73_nodup_endo6_38_counts <- read.delim("~/Documents/lab/endo6_38_counts_dec.txt", comment.char="#")
+b73_nodup_endo6_38_counts <- read.delim("~/Documents/lab/endo6_38_counts.txt", comment.char="#")
 Zm.B73.REFERENCE <- read.delim("~/Documents/lab/Zm-B73-REFERENCE-NAM-5.0_Zm00001eb.1.gff3", header=FALSE, comment.char="#")
 
 canonical.REFERENCE <- Zm.B73.REFERENCE %>% 
