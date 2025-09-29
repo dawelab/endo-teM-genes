@@ -2,7 +2,7 @@
 
 ## 1. Calclute the TPM from the raw transcript reads  
 >Input files:
->1. endo6_38_counts_dec.txt, raw reads generated from the file RNA_Seq_mapping
+>1. endo6_38_counts.txt, raw reads generated from 00RNA_Seq_mapping
 >2. Zm-B73-REFERENCE-NAM-5.0_Zm00001eb.1.gff3, B73 genome annotation file
 >   
 >Algorithm:
