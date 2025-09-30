@@ -54,8 +54,17 @@ ggplot(nexons, aes(x=group, y=Freq, fill=group)) +
 
 
 #length of elements (Figure 3D)
+
+#generate intorn annotation file 
+#ml  GenomeTools/1.6.2-GCC-11.3.0
+#awk '{print "##sequence-region\t"$1"\t1\t"$2}' ./Zm-B73-REFERENCE-NAM-5.0.fa.fai > header.txt
+#(head -n 1 Zm-B73-REFERENCE-NAM-5.0_Zm00001eb.1.gff3; cat header.txt; tail -n +2 Zm-B73-REFERENCE-NAM-5.0_Zm00001eb.1.gff3) > gff3_with_regions.gff3
+#gt gff3 -addintrons -retainids -sortlines gff3_with_regions.gff3 > B73_introns.gff3
+
+
+
 B73_introns <- read.table("~/Documents/lab/B73_introns.gff3", header=FALSE, quote="\"")
-FMEGs<-B73_MEGS_FMEGS$x
+
 colnames(B73_introns)[9]<-"V9"
 canonical.REFERENCE <- B73_introns %>% 
   filter(grepl("canonical_transcript=1", V9))
@@ -70,42 +79,36 @@ canonical_elements <- B73_introns %>%
 
 
 canonical_elements$gene<-substring(canonical_elements$Parent,1,15)
-canonical_elements$length<-canonical_elements$V5-canonical_elements$V4
+canonical_elements$length<-canonical_elements$V5-canonical_elements$V4+1
 
 
 BMEGS_length<-canonical_elements%>%
-  filter(gene %in% all_BM_5FC_core$V1)%>%
-  filter(V3 %in% c("intron","five_prime_UTR","three_prime_UTR","CDS"))
-BMEGS_length<-BMEGS_length%>%
+  filter(gene %in% endosperm_teM_genes$V1)%>%
+  filter(V3 %in% c("intron","five_prime_UTR","three_prime_UTR","CDS")) %>%
   mutate(V3=case_when(V3 %in% c("five_prime_UTR", "three_prime_UTR")~"UTR",
-  TRUE ~ V3))
-BMEGS_length2 <- BMEGS_length %>%
+                      TRUE ~ V3)) %>%
   group_by(gene, V3) %>%
   summarise(total_length = sum(length), .groups = "drop")
 
 FMEGS_length<-canonical_elements%>%
-  filter(gene %in% imprinting_5_genes)%>%
-  filter(V3 %in% c("intron","five_prime_UTR","three_prime_UTR","CDS"))
-FMEGS_length<-FMEGS_length%>%
+  filter(gene %in% FMEGS$x)%>%
+  filter(V3 %in% c("intron","five_prime_UTR","three_prime_UTR","CDS")) %>%
   mutate(V3=case_when(V3 %in% c("five_prime_UTR", "three_prime_UTR")~"UTR",
-                      TRUE ~ V3))
-FMEGS_length2 <- FMEGS_length %>%
+                      TRUE ~ V3)) %>%
   group_by(gene, V3) %>%
   summarise(total_length = sum(length), .groups = "drop")
 
 core_gene_length<-canonical_elements%>%
   filter(gene %in% core_gene$x)%>%
-  filter(V3 %in% c("intron","five_prime_UTR","three_prime_UTR","CDS"))
-core_gene_length<-core_gene_length%>%
+  filter(V3 %in% c("intron","five_prime_UTR","three_prime_UTR","CDS")) %>%
   mutate(V3=case_when(V3 %in% c("five_prime_UTR", "three_prime_UTR")~"UTR",
-                      TRUE ~ V3))
-core_gene_length2 <- core_gene_length %>%
+                      TRUE ~ V3))%>%
   group_by(gene, V3) %>%
   summarise(total_length = sum(length), .groups = "drop")
 
-BMEGS_length2$geneset<-"Endo teM Genes"
-FMEGS_length2$geneset<-"FMEGs"
-core_gene_length2$geneset<-"Core Genes"
+BMEGS_length$geneset<-"Endo teM Genes"
+FMEGS_length$geneset<-"FMEGs"
+core_gene_length$geneset<-"Core Genes"
 
 total_length<-bind_rows(BMEGS_length2,FMEGS_length2,core_gene_length2)
 total_length$geneset <- factor(total_length$geneset, levels = c("Endo teM Genes", "FMEGs", "Core Genes"))
@@ -123,4 +126,3 @@ ggplot(total_length,aes(x=V3,y=(total_length/1000),fill = V3)) +
     legend.position = 'top',
     legend.title = element_blank()
   )
-
