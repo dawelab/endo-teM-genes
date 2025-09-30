@@ -140,7 +140,7 @@ colnames(pollen_teM_genes_nm)[1]<-"gene"
 
 
 #endosperm teM genes 
-
+#bmegs_var could be found in 04test_imprinting
 
 imprinted_endosperm_tem_genes<-merge(weighted_methylation,bmegs_var,by.x="gene",by.y="b73_gene")
 
@@ -162,9 +162,8 @@ endo_teM<-weighted_methylation%>%
   mutate(class="endo teM genes")%>%
   select("gene","weighted_CG","weighted_CHG","class")
 
-
 #fmegs
-MEG_FMEGs <- read.delim("~/Documents/lab/megpeg/B73_MEGS_FMEGS.txt", header=T)
+MEG_FMEGs <- read.delim("~/Documents/lab/B73_MEGS_FMEGS.txt", header=T)
 
 fmegs<-weighted_methylation%>%
   filter(gene%in%MEG_FMEGs$x)%>%
@@ -211,7 +210,7 @@ ggplot(df_long, aes(x = methylation, y = class, fill = class)) +
                 "weighted_CHG" = "CHG "
               ))) +
   theme_bw(base_size = 16) +
-  #scale_x_continuous(limits = c(0, 0.07)) +
+  #scale_x_continuous(limits = c(0, 0.07)) + 
   scale_x_continuous(limits = c(0, 0.12)) +
   theme(
     legend.position = "none",
@@ -223,6 +222,7 @@ ggplot(df_long, aes(x = methylation, y = class, fill = class)) +
     title = " "
   )+
   scale_y_discrete(limits = rev) +
+  #add the p-values between maternal and biparental, and between DEG and non_DEG
   stat_compare_means(
     comparisons = list(c("maternal","biparental"),
                        c("DEG", "non_DEG")), 
@@ -233,5 +233,4 @@ ggplot(df_long, aes(x = methylation, y = class, fill = class)) +
     #label.y = c(0.05, 0.05),
     label.y = c(0.09, 0.09),
     format.args = list(digits = 3,nsmall = 3)
-     
-  ) 
+) 
