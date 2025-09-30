@@ -1,9 +1,14 @@
-# These scripts describe how do we identify the imprinted genes in maize endoseprm
+# Identifying Imprinted Genes in Maize Endosperm
 
-1. The input file mat_pref_NAM.txt was downloaded from Higgins et al., 2024 "Conservation of imprinted expression across genotypes is correlated with consistency of imprinting across endosperm development in maize"
-2. The format transfer file MaizeGDB_maize_pangene_2020_08.tsv was downloaded from https://download.maizegdb.org/Pan-genes/archive/pan-zea-2020/
-3. Transfer all the genomes to B73 based on MaizeGDB_maize_pangene_2020_08.tsv.
-4. Select the genes with at least one allele >= 5RPM
-5. Group the remaining genes by the B73 gene id and calculte the maternal_preference variance and mean values.
-6. Select the genes with <= 0.02 maternal_preference variance, and the maternal_preference means represent the imprinting status.
-7. (optional)Draw dot plots showing the maternal_preference distribution in each gene set.
+## Input files
+> 1. **mat_pref_NAM.txt** — downloaded from Higgins et al., 2024  
+>    *"Conservation of imprinted expression across genotypes is correlated with consistency of imprinting across endosperm development in maize"*  
+> 2. **MaizeGDB_maize_pangene_2020_08.tsv** — downloaded from [MaizeGDB](https://download.maizegdb.org/Pan-genes/archive/pan-zea-2020/)
+
+## Steps to generate imprinting status
+1. Convert all gene IDs to B73 annotation using `MaizeGDB_maize_pangene_2020_08.tsv`.  
+2. Select genes with at least one allele ≥ 5 RPM; discard genes with low expression in both alleles.  
+3. Group the remaining genes by B73 gene ID and calculate both the maternal_preference variance and mean.  
+4. Select genes with maternal_preference variance ≤ 0.02. The mean maternal_preference value determines the imprinting status.  
+5. Visualize results by drawing plots of maternal_preference distribution for each gene set (Fig. 4A, S4A–S4B*).  
+
