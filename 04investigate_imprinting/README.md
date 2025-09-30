@@ -5,7 +5,7 @@
 >    *"Conservation of imprinted expression across genotypes is correlated with consistency of imprinting across endosperm development in maize"*  
 > 2. **MaizeGDB_maize_pangene_2020_08.tsv** — downloaded from [MaizeGDB](https://download.maizegdb.org/Pan-genes/archive/pan-zea-2020/)
 
-## Steps to generate imprinting status
+## Steps to investigate imprinting status
 1. Convert all gene IDs to B73 annotation using `MaizeGDB_maize_pangene_2020_08.tsv`.  
 2. Select genes with at least one allele ≥ 5 RPM; discard genes with low expression in both alleles.  
 3. Group the remaining genes by B73 gene ID and calculate both the maternal_preference variance and mean.  
