@@ -1,12 +1,17 @@
-# These scripts characterize endosperm teM genes methylation pattern
+# Scripts for Characterizing Endosperm teM Gene Methylation Patterns
 
-## 1. Extract the targeted region data into bed file, like 200bp-centered TSS or the gene body regions
+1. Extract the targeted region data into a BED file, e.g., 200 bp–centered TSS or gene body regions.  
+2. Use **bedtools getfasta** to extract the sequences.  
+3. Use **CGmapTools** to calculate the mC/total C ratio (**C-normalized methylation**).  
+4. Count the number of **CG, CHG, CHH** cytosines separately in the targeted regions.  
+5. Calculate the **N-normalized methylation** using the algorithm:
 
-## 2. Use bedtools getfasta to get the sequences
+   $$
+   \text{N-normalized methylation} = \frac{\text{C-normalized methylation } \times \text{ number of cytosines}}{\text{total nucleotides}}
+   $$
 
-## 3. Use CGmapTools to get the mC/total C ratio (C-normalized methylation)
+6. The actrual difference between **C-normalized methylation** and **N-normalized methylation**
 
-## 4. Count the number of CG, CHG, CHH seperately in the targeted regions
+    ![two_types_of_methylation_ratio](https://github.com/yiruiS/endo-teM-genes/edit/main/03explore_methylation_pattern/06_two_types_of_methylation_ratio.png)
 
-## 5. Calculate the N-normalized methylation based on the algotithm:
-$$ N-normalized methylation = \frac{(C-normalized methylation) * (number of cytosine)}{\(total nuclide)} $$
+
