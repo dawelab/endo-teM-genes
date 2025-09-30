@@ -12,6 +12,6 @@
 
 6. The actrual difference between **C-normalized methylation** and **N-normalized methylation**
 
-    ![two_types_of_methylation_ratio](https://github.com/yiruiS/endo-teM-genes/edit/main/03explore_methylation_pattern/06_two_types_of_methylation_ratio.png)
+    ![two_types_of_methylation_ratio](https://github.com/yiruiS/endo-teM-genes/blob/main/03explore_methylation_pattern/06_two_types_of_methylation_ratio.png)
 
 
