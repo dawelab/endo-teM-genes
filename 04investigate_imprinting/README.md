@@ -1,9 +1,8 @@
 # Identifying Imprinted Genes in Maize Endosperm
 
 ## Input files
-> 1. **mat_pref_NAM.txt** — downloaded from Higgins et al., 2024  
->    *"Conservation of imprinted expression across genotypes is correlated with consistency of imprinting across endosperm development in maize"*  
-> 2. **MaizeGDB_maize_pangene_2020_08.tsv** — downloaded from [MaizeGDB](https://download.maizegdb.org/Pan-genes/archive/pan-zea-2020/)
+1. **mat_pref_NAM.txt** — downloaded from Higgins et al., 2024  *"Conservation of imprinted expression across genotypes is correlated with consistency of imprinting across endosperm development in maize"*  
+2. **MaizeGDB_maize_pangene_2020_08.tsv** — downloaded from [MaizeGDB](https://download.maizegdb.org/Pan-genes/archive/pan-zea-2020/)
 
 ## Steps to investigate imprinting status
 1. Convert all gene IDs to B73 annotation using `MaizeGDB_maize_pangene_2020_08.tsv`.  
