@@ -10,5 +10,5 @@
 2. Select genes with at least one allele ≥ 5 RPM; discard genes with low expression in both alleles.  
 3. Group the remaining genes by B73 gene ID and calculate both the maternal_preference variance and mean.  
 4. Select genes with maternal_preference variance ≤ 0.02. The mean maternal_preference value determines the imprinting status.  
-5. Visualize results by drawing plots of maternal_preference distribution for each gene set (Fig. 4A, S4A–S4B*).  
+5. Visualize the association between maternal preference and N-normalized methylation or C-normalized methylation (Fig. 4A, S4A–S4B*).  
 
