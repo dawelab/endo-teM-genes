@@ -1,7 +1,7 @@
 library(Biostrings)
 library(dplyr)
 
-count_methylation <- function(name, sequence) {
+count_cytosines <- function(name, sequence) {
   sequence <- toupper(sequence)
   seq_rc <- as.character(reverseComplement(DNAString(sequence)))
   gene_start <- 3
@@ -55,7 +55,7 @@ count_methylation <- function(name, sequence) {
 TSS_200bp <- readDNAStringSet("./TSS_200bp.fa", format = "fasta")
 seq_names <- names(TSS_200bp)
 seqs <- as.character(TSS_200bp)
-all_results_TSS_200bp<- purrr::map2_dfr(seq_names, seqs, count_methylation )
+all_results_TSS_200bp<- purrr::map2_dfr(seq_names, seqs, count_cytosines )
 
 
 write.table(all_results_TSS_200bp"./tss_counts_doublestrand_200bp.csv",quote = F,
@@ -67,7 +67,7 @@ write.table(all_results_TSS_200bp"./tss_counts_doublestrand_200bp.csv",quote = F
 gene_body <- readDNAStringSet("./gene_body.fa", format = "fasta")
 seq_names <- names(gene_body)
 seqs <- as.character(gene_body)
-all_results_gene_body<- purrr::map2_dfr(seq_names, seqs, count_methylation )
+all_results_gene_body<- purrr::map2_dfr(seq_names, seqs, count_cytosines )
 
 
 write.table(all_results_gene_body,"./counts_doublestrand_genebody.csv",quote = F,
