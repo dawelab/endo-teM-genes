@@ -47,11 +47,12 @@ FC<-rbind(fc1,fc2,fc3,fc4)
 FC$group_wrapped <- gsub("_", "\n", FC$group)
 
 
-ggplot(FC, aes(x=group, y=FC+1, fill=group)) +
+ggplot(FC, aes(x=group, y=FC, fill=group)) +
   geom_boxplot(width = 0.75)+
   scale_y_continuous(trans = "log2",
                      breaks =c(1,10,100,1000,10000,100000),
-                     labels = c("1","10","100","1000","10000","100000"))+
+                     labels = c("1","10","100","1000","10000","100000"),
+                     limits = c(0.1,10000))+
   theme_classic(base_size = 18,)+
   theme(
     legend.position = "none") +
@@ -85,11 +86,12 @@ TPM<-rbind(fc1,fc2,fc3,fc4)
 TPM$group_wrapped <- gsub("_", "\n", FC$group)
 
 
-ggplot(TPM, aes(x=group, y=TPM+1, fill=group)) +
+ggplot(TPM, aes(x=group, y=TPM, fill=group)) +
   geom_boxplot(width = 0.75)+
   scale_y_continuous(trans = "log2",
                      breaks =c(1,10,100,1000,10000,100000),
-                     labels = c("1","10","100","1000","10000","100000"))+
+                     labels = c("1","10","100","1000","10000","100000"),
+                     limits = c(0.1,10000))+
   theme_classic(base_size = 18,)+
   theme(
     legend.position = "none",
