@@ -12,6 +12,7 @@
 
 The actrual difference between **C-normalized methylation** and **N-normalized methylation**
 
-    ![two_types_of_methylation_ratio](https://github.com/yiruiS/endo-teM-genes/blob/main/03explore_methylation_pattern/two_types_of_methylation_ratio.png)
+   ![two_types_of_methylation_ratio](https://raw.githubusercontent.com/yiruiS/endo-teM-genes/main/03explore_methylation_pattern/two_types_of_methylation_ratio.png)
+ 
 
 5. Calculate the parent specific methylation values.
