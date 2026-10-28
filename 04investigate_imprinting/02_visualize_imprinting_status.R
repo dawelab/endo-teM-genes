@@ -109,7 +109,7 @@ colnames(pollen_teM_genes_nm)[1]<-"gene"
 imprinted_endosperm_tem_genes<-merge(weighted_methylation,bmegs_var,by.x="gene",by.y="b73_gene")
 
 imprinted_endosperm_tem_genes<-imprinted_endosperm_tem_genes%>%
-  mutate(class=ifelse(mean>0.85, "maternal", "biparental"))%>%
+  mutate(class=ifelse(mean>0.86, "maternal", "biparental"))%>%
   select("gene","weighted_CG","weighted_CHG","class")
 
 colnames(imprinted_endosperm_tem_genes)[1]<-"gene"
@@ -200,7 +200,7 @@ ggplot(df_long, aes(x = methylation, y = class, fill = class)) +
 
 #he correlation between maternal expression and tss N-normalized methylation on the 13 endo tem genes (Fig S4A)
 imprinted_endosperm_tem_genes<-merge(weighted_methylation,bmegs_var,by.x="gene",by.y="b73_gene")%>%
-  mutate(imprinting=ifelse(mean >=0.85, "maternal","biparental"))
+  mutate(imprinting=ifelse(mean >=0.86, "maternal","biparental"))
 
 df_long<-imprinted_endosperm_tem_genes%>%
   pivot_longer(cols = c(weighted_CG, weighted_CHG), names_to = "Variable", values_to = "weighted_cytosine")
@@ -226,7 +226,7 @@ ggplot(df_long, aes(x =weighted_cytosine, y = mean,colour = imprinting)) +
 
 #he correlation between maternal expression and gene body N-normalized methylation on the 13 endo tem genes (Fig S4B)
 imprinted_endosperm_tem_genes<-merge(weighted_methylation,bmegs_var,by.x="gene",by.y="b73_gene")%>%
-  mutate(imprinting=ifelse(mean >=0.85, "maternal","biparental"))
+  mutate(imprinting=ifelse(mean >=0.86, "maternal","biparental"))
 
 df_long<-imprinted_endosperm_tem_genes%>%
   pivot_longer(cols = c(weighted_CG, weighted_CHG), names_to = "Variable", values_to = "weighted_cytosine")
@@ -292,7 +292,7 @@ colnames(pollen_teM_genes_C)[1]<-"gene"
 imprinted_endosperm_tem_genes_C<-merge(merged,bmegs_var,by.x="gene",by.y="b73_gene")
 
 imprinted_endosperm_tem_genes_C<-imprinted_endosperm_tem_genes_C%>%
-  mutate(class=ifelse(mean>0.85, "maternal", "biparental"))%>%
+  mutate(class=ifelse(mean>0.86, "maternal", "biparental"))%>%
   select(c(1,2,4,8))
 
 colnames(imprinted_endosperm_tem_genes_C)[1]<-"gene"
