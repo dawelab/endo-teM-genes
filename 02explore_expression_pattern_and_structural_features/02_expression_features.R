@@ -88,11 +88,11 @@ TPM$group_wrapped <- gsub("_", "\n", FC$group)
 
 ggplot(TPM, aes(x=group, y=TPM, fill=group)) +
   geom_boxplot(width = 0.75)+
-  scale_y_continuous(trans = "log2",
+  scale_y_continuous(trans = "log10",
                      breaks =c(1,10,100,1000,10000,100000),
                      labels = c("1","10","100","1000","10000","100000"),
-                     limits = c(0.1,10000))+
-  theme_classic(base_size = 18,)+
+                     limits = c(1,10000))+
+  theme_classic(base_size = 18)+
   theme(
     legend.position = "none",
     axis.text.x = element_text(angle = 90, vjust = 0.5, hjust = 0.5)) +
