@@ -49,11 +49,11 @@ FC$group_wrapped <- gsub("_", "\n", FC$group)
 
 ggplot(FC, aes(x=group, y=FC, fill=group)) +
   geom_boxplot(width = 0.75)+
-  scale_y_continuous(trans = "log2",
-                     breaks =c(1,10,100,1000,10000,100000),
-                     labels = c("1","10","100","1000","10000","100000"),
-                     limits = c(0.1,10000))+
-  theme_classic(base_size = 18,)+
+  scale_y_continuous(trans = "log10",
+                     breaks =c(1,10,100,1000,10000),
+                     labels = c("1","10","100","1000","10000"),
+                     limits = c(1,10000))+
+  theme_classic(base_size = 18)+
   theme(
     legend.position = "none") +
   labs(y="Fold Change \n endosperm/sporophyte",x="")+
