@@ -6,7 +6,7 @@ FMEGS <-FMEGS[,1]
 FMEGS_FC<-b73.all.6_38[which(b73.all.6_38$gene%in%FMEGS),]
 FMEGS_FC$maxendo<-apply(FMEGS_FC[,25:41],1,max)#find the max endosperm expression
 FMEGS_FC$max<-apply(FMEGS_FC[,c(14,16:23)],1,max)#find the max other tissues expression
-FMEGS_FC$FC<-FMEGS_FC$maxendo/(FMEGS_FC$max+1)
+FMEGS_FC$FC<-(FMEGS_FC$maxendo+1)/(FMEGS_FC$max+1)
 
 #endosperm teM genes
 endo_tem <- read.table("~/Documents/lab/endosperm_teM_genes.txt", quote="\"", comment.char="")
