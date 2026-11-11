@@ -47,13 +47,6 @@ bigwigCompare \
   -o w_leaf_H3K56ac_ratio_w22.bw \
   -p 10
 
-bigwigCompare \
-  -b1 w_leaf_H3K56ac.bw \
-  -b2 W22-6.bw \
-  --operation ratio \
-  --binSize 10 \
-  -o w_leaf_H3K56ac_ratio_w22.bw \
-  -p 10
 
 bigwigCompare \
   -b1 w2-IgG.q20.sorted.bw \
